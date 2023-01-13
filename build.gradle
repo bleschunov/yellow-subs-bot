@@ -25,6 +25,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.hibernate:hibernate-validator:8.0.0.Final'
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    implementation 'org.javacord:javacord:3.7.0'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'

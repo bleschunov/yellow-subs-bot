@@ -4,14 +4,14 @@ services:
   db:
     image: postgres:latest
     network_mode: bridge
-    container_name: daycounters-db
+    container_name: yellowsubs-db
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: qwerty
-      POSTGRES_DB: daycountersdb
+      POSTGRES_DB: yellowsubsdb
     restart: unless-stopped
 
 volumes:
