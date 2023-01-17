@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  main:
+    log-startup-info: false
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/yellowsubsdb?allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
@@ -15,5 +17,7 @@ spring:
     hibernate:
       format_sql: true
 logging:
+  file:
+    path: log
   level:
     root: INFO

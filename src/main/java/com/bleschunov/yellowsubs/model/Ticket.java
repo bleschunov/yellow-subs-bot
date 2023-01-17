@@ -1,39 +1,53 @@
 package com.bleschunov.yellowsubs.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.ZonedDateTime;
 
 /**
  * @author Bleschunov Dmitry
  */
 @Entity
+@Getter
+@Setter
+@ToString
 @Table(name = "ticket")
 public class Ticket {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToMany
+    @Column(name = "timepad_id")
+    private String timepadId;
+
+    @Column(name = "owner_discord_nickname")
+    private String ownerDiscordNickname;
+
+    @ManyToOne
     @JoinColumn(name = "app_user_id", referencedColumnName = "id")
-    private List<AppUser> appUsers;
+    private AppUser appUser;
 
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
 
-    @CreationTimestamp
-    private LocalDateTime createdAt;
+    @Column(name = "status")
+    private String status;
+
+    @Column(name = "created_at")
+    private ZonedDateTime createdAt;
 
     @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    @Column(name = "updated_at")
+    private ZonedDateTime updatedAt;
 }

@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -25,6 +26,9 @@ public class AppUser {
     @Column(name = "discord_id")
     private long discordId;
 
+    @Column(name = "discord_nickname")
+    private String discordNickname;
+
     @Column(name = "timepad_id")
     private long timepadId;
 
@@ -34,7 +38,7 @@ public class AppUser {
     @ManyToMany(mappedBy = "appUsers")
     private List<Role> roles;
 
-    @ManyToMany(mappedBy = "appUsers")
+    @OneToMany(mappedBy = "appUser")
     private List<Ticket> tickets;
 
     @CreationTimestamp
