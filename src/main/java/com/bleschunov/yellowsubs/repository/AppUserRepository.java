@@ -11,5 +11,5 @@ import java.util.Optional;
  */
 @Repository
 public interface AppUserRepository extends CrudRepository<AppUser, Long> {
-    Optional<AppUser> findByDiscordNickname(String discordNickname);
+    Optional<AppUser> findByDiscordDiscriminatedName(String discordNickname);
 }

@@ -24,7 +24,6 @@ public class TicketController {
     @PostMapping
     public ResponseEntity<Void> createTicket(@RequestBody TicketDto ticketDto) {
         log.info(ticketDto.toString());
-//        System.out.println(event);
         ticketService.createOrUpdateTicket(ticketDto);
         return ResponseEntity.ok().build();
     }

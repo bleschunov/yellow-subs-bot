@@ -30,12 +30,9 @@ public class Ticket {
     @Column(name = "timepad_id")
     private String timepadId;
 
-    @Column(name = "owner_discord_nickname")
-    private String ownerDiscordNickname;
-
     @ManyToOne
     @JoinColumn(name = "app_user_id", referencedColumnName = "id")
-    private AppUser appUser;
+    private AppUser owner;
 
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")

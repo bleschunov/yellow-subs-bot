@@ -18,6 +18,9 @@ public class TicketDto {
     @JsonProperty("id")
     private String timepadId;
 
+    @JsonProperty("email")
+    private String ownerTimepadEmail;
+
     @JsonProperty("event_id")
     private long eventId;
 

@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -18,6 +19,7 @@ import java.util.List;
  */
 @Entity
 @Setter
+@Getter
 @Table(name = "event")
 public class Event {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +33,9 @@ public class Event {
 
     @Column(name = "description_short")
     private String descriptionShort;
+
+    @Column(name = "hall_title")
+    private String hallTitle;
 
     @Column(name = "url")
     private String url;

@@ -23,6 +23,7 @@ public interface EventMapper {
     @Mapping(target = "endsAt", qualifiedByName = "toZonedDateTime")
     @Mapping(target = "createdAt", qualifiedByName = "toZonedDateTime")
     @Mapping(target = "tickets", ignore = true)
+    @Mapping(source = "title", target = "hallTitle")
     @Mapping(target = "updatedAt", ignore = true)
     Event toEntity(EventDto eventDto);
 
